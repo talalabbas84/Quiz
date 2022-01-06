@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"
+    type='text/css'>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    label {
+      font-size: 16px;
+      color: #f2f2f2;
+      font-style: italic;
+    }
+
+    input[type=text],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      margin-top: 6px;
+      margin-bottom: 20px;
+      resize: vertical;
+      background: transparent;
+      color: white;
+
+    }
+
+    ::placeholder {
+      color: #F8F9FA;
+      font-style: italic;
+      font-size: large;
+    }
+
+    .form {
+      left: 50%;
+      top: 50%;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      background-color: #1779DB;
+      padding-left: 25px;
+      padding-right: 25px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      max-width: 600px;
+    }
+
+    #date {
+
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      margin-top: 6px;
+      margin-bottom: 20px;
+      resize: vertical;
+      background: transparent;
+      color: white;
+    }
+
+    #ui-datepicker-div {
+      background-color: #F8F9FA !important;
+    }
+
+    .date-icon {
+      position: absolute;
+      top: 18px;
+      left: 12px;
+      color: #aaa;
+      cursor: pointer;
+    }
+
+    .date-container {
+      position: relative;
+      float: left;
+    }
+
+    .date-main-div {
+      display: flex;
+      flex-direction: column;
+      padding-right: 30px;
+    }
+
+    .second-col {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      /* media query for small screen */
+    }
+
+    @media screen and (max-width: 750px) {
+      .second-col {
+        flex-direction: column;
+      }
+
+      .date-main-div {
+        padding-right: 0;
+      }
+
+      ::placeholder {
+        color: #F8F9FA;
+        font-style: italic;
+        font-size: medium;
+      }
+
+      .form {
+        left: 0;
+        top: 0;
+        position: absolute;
+        transform: none;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <form class="form">
+      <label for="fname">Your full given name:</label>
+      <input type="text" id="fname" name="firstname" placeholder="Enter name here">
+      <div class="second-col">
+        <div class="date-main-div">
+          <label for="country">Date of Birth</label>
+          <div class="date-container">
+            <input id="date" class="date" type="text" />
+            <i id="date-icon" class="date-icon fa fa-calendar" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div>
+          <label for="lname">Country of residence or citizenship</label>
+          <input type="text" id="lname" name="lastname" placeholder="Enter country here">
+        </div>
+      </div>
+
+      <label for="lname">What school do you plan to attend?</label>
+      <input type="text" id="lname" name="lastname" placeholder="Enter school here">
+
+      <label for="subject">Please take a moment to describe your intended area of study:</label>
+      <textarea id="subject" name="subject" placeholder="Enter details here" style="height:200px"></textarea>
+
+    </form>
+  </div>
+
+  <script type="text/javascript">
+    $(function () {
+      $('#date').datepicker({
+        dateFormat: 'dd-M-yy',
+        minDate: 1
+      });
+
+      $('.date-icon').on('click', function () {
+        $('#date').focus();
+      })
+    });
+  </script>
+</body>
+
+
+
+</html>
